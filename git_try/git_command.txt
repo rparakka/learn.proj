@@ -1,0 +1,294 @@
+
+
+
+
+goto https://github.com/
+signup for github account
+
+create a new repository
+
+install git in local
+# dnf install git
+
+# git config -global user.email "rajesh.parakkal@gmail.com"
+# git config -global user.name "rparakka"
+
+
+copy the link from clone& download button.  there is copy button
+Right click Git Bash in windows
+# git remote add origin https://github.com/rparakka/learn.proj.git
+
+# git pull origin master
+
+# git push
+for pushing the changes to central repository
+
+to add files from local workspace to local repository  (index it)
+
+# git add
+# git add -A  - to add all files from workspace to local repo index
+# git status  - to know the status of files in local repository      
+# git commit -m "commit comments" - to commit the changes from local workspace to local repository
+
+# git log - to see all the changes , date / time , author etc
+
+# git commit -a - m   to commit all changes
+
+from master branch we can create 1st branch
+# git branch firstbranch
+
+to switch to branch to firstbranch
+# git checkout firstbranch
+
+# git merge firstbranch
+
+# git rebase master
+way of combining work between different masters
+
+
+
+https://github.com/rparakka/learn.proj.git
+
+rparakka@rparakka-VirtualBox:/$ git config --global user.email "rajesh.parakkal@gmail.com"
+rparakka@rparakka-VirtualBox:/$
+rparakka@rparakka-VirtualBox:/$ git config --global user.name
+rparakka@rparakka-VirtualBox:/$ git config --global user.name "rparakka"
+rparakka@rparakka-VirtualBox:/$
+rparakka@rparakka-VirtualBox:/$ cd /gitrepo
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@rparakka-VirtualBox:/gitrepo$ mkdir learn.proj
+rparakka@rparakka-VirtualBox:/gitrepo$ ls -l
+total 4
+drwxr-xr-x 2 rparakka rparakka 4096 Jul  7 11:22 learn.proj
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@virtualbox:/gitrepo/learn.proj$ git remote add origin https://github.com/rparakka/learn.proj.git
+fatal: not a git repository (or any of the parent directories): .git
+rparakka@virtualbox:/gitrepo/learn.proj$
+
+rparakka@rparakka-VirtualBox:/gitrepo$ git init
+Initialized empty Git repository in /gitrepo/.git/
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@rparakka-VirtualBox:/gitrepo$ git remote add origin https://github.com/rparakka/learn.proj.git
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@rparakka-VirtualBox:/gitrepo$ git pull origin master
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 7 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (7/7), done.
+From https://github.com/rparakka/learn.proj
+* branch            master     -> FETCH_HEAD
+* [new branch]      master     -> origin/master
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@rparakka-VirtualBox:/gitrepo$ ls
+learn.proj  README.md
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@rparakka-VirtualBox:/gitrepo$ echo "first ubuntu file " > ubuntu.txt
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@rparakka-VirtualBox:/gitrepo$ git add ubuntu.txt
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@rparakka-VirtualBox:/gitrepo$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+    new file:   ubuntu.txt
+
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@rparakka-VirtualBox:/gitrepo$ git commit -m "first file from ubuntu"
+[master 2d6b213] first file from ubuntu
+1 file changed, 1 insertion(+)
+create mode 100644 ubuntu.txt
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@rparakka-VirtualBox:/gitrepo$ git status
+On branch master
+nothing to commit, working tree clean
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@rparakka-VirtualBox:/gitrepo$ git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+rparakka@rparakka-VirtualBox:/gitrepo$ git push --set-upstream origin master
+Username for 'https://github.com': rparakka
+Password for 'https://rparakka@github.com':
+Counting objects: 3, done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 302 bytes | 302.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/rparakka/learn.proj.git
+   5a73fab..2d6b213  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@rparakka-VirtualBox:/gitrepo$ git checkout play
+error: pathspec 'play' did not match any file(s) known to git.
+rparakka@rparakka-VirtualBox:/gitrepo$
+
+rparakka@rparakka-VirtualBox:/gitrepo$ git branch -a
+* master
+  remotes/origin/master
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@rparakka-VirtualBox:/gitrepo$ git pull origin play
+From https://github.com/rparakka/learn.proj
+* branch            play       -> FETCH_HEAD
+* [new branch]      play       -> origin/play
+Already up to date.
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@rparakka-VirtualBox:/gitrepo$ git branch -a
+* master
+  remotes/origin/master
+  remotes/origin/play
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@rparakka-VirtualBox:/gitrepo$ git checkout play
+Branch 'play' set up to track remote branch 'play' from 'origin'.
+Switched to a new branch 'play'
+rparakka@rparakka-VirtualBox:/gitrepo$
+
+
+
+rparakka@rparakka-VirtualBox:/gitrepo$ git rm play.txt
+rm 'play.txt'
+rparakka@rparakka-VirtualBox:/gitrepo$ git rm README.md
+rm 'README.md'
+rparakka@rparakka-VirtualBox:/gitrepo$ ls -la
+total 16
+drwxr-xr-x  4 rparakka root     4096 Jul  7 15:08 .
+drwxr-xr-x 25 root     root     4096 Jul  7 11:04 ..
+drwxr-xr-x  8 rparakka rparakka 4096 Jul  7 15:08 .git
+drwxr-xr-x  2 rparakka rparakka 4096 Jul  7 11:22 learn.proj
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@rparakka-VirtualBox:/gitrepo$ git rm .git
+fatal: pathspec '.git' did not match any files
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@rparakka-VirtualBox:/gitrepo$ ls -a
+.  ..  .git  learn.proj
+rparakka@rparakka-VirtualBox:/gitrepo$
+rparakka@rparakka-VirtualBox:/gitrepo$ rm -rf .git
+
+
+rparakka@virtualbox:/gitrepo/learn.proj$ git config --list
+user.email=rajesh.parakkal@gmail.com
+user.name=rparakka
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=https://github.com/rparakka/learn.proj.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
+branch.play.remote=origin
+branch.play.merge=refs/heads/play
+rparakka@virtualbox:/gitrepo/learn.proj$
+rparakka@virtualbox:/gitrepo/learn.proj$
+rparakka@virtualbox:/gitrepo/learn.proj$ git status
+On branch play
+Your branch is up to date with 'origin/play'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+    rprog/This is folder to keep r related project files
+
+nothing added to commit but untracked files present (use "git add" to track)
+rparakka@virtualbox:/gitrepo/learn.proj$
+rparakka@virtualbox:/gitrepo/learn.proj$ ls
+play.txt  README.md  rprog  ubuntu.txt
+rparakka@virtualbox:/gitrepo/learn.proj$
+rparakka@virtualbox:/gitrepo/learn.proj$ mv ubuntu.txt rprog/
+rparakka@virtualbox:/gitrepo/learn.proj$ git add changes
+fatal: pathspec 'changes' did not match any files
+rparakka@virtualbox:/gitrepo/learn.proj$
+rparakka@virtualbox:/gitrepo/learn.proj$ git add .
+rparakka@virtualbox:/gitrepo/learn.proj$ git status
+On branch play
+Your branch is up to date with 'origin/play'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+    new file:   rprog/This is folder to keep r related project files
+    renamed:    ubuntu.txt -> rprog/ubuntu.txt
+
+rparakka@virtualbox:/gitrepo/learn.proj$ git reset
+Unstaged changes after reset:
+D    ubuntu.txt
+rparakka@virtualbox:/gitrepo/learn.proj$ ls
+play.txt  README.md  rprog
+rparakka@virtualbox:/gitrepo/learn.proj$ mv rprog/ubuntu.txt .
+rparakka@virtualbox:/gitrepo/learn.proj$ ls
+play.txt  README.md  rprog  ubuntu.txt
+rparakka@virtualbox:/gitrepo/learn.proj$
+rparakka@virtualbox:/gitrepo/learn.proj$ git status
+On branch play
+Your branch is up to date with 'origin/play'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+    rprog/This is folder to keep r related project files
+
+nothing added to commit but untracked files present (use "git add" to track)
+rparakka@virtualbox:/gitrepo/learn.proj$
+rparakka@virtualbox:/gitrepo/learn.proj$
+rparakka@virtualbox:/gitrepo/learn.proj$ git add .
+rparakka@virtualbox:/gitrepo/learn.proj$ git status
+On branch play
+Your branch is up to date with 'origin/play'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+    new file:   rprog/This is folder to keep r related project files
+
+rparakka@virtualbox:/gitrepo/learn.proj$
+rparakka@virtualbox:/gitrepo/learn.proj$ git commit
+Aborting commit due to empty commit message.
+rparakka@virtualbox:/gitrepo/learn.proj$ git commit -m "nothing changed"
+[play 0c4f057] nothing changed
+1 file changed, 0 insertions(+), 0 deletions(-)
+create mode 100644 rprog/This is folder to keep r related project files
+rparakka@virtualbox:/gitrepo/learn.proj$
+rparakka@virtualbox:/gitrepo/learn.proj$ ls
+play.txt  README.md  rprog  ubuntu.txt
+rparakka@virtualbox:/gitrepo/learn.proj$
+rparakka@virtualbox:/gitrepo/learn.proj$ ls rprog/
+readme.txt  'This is folder to keep r related project files '
+rparakka@virtualbox:/gitrepo/learn.proj$
+rparakka@virtualbox:/gitrepo/learn.proj$ git push
+Username for 'https://github.com': rparakka
+Password for 'https://rparakka@github.com':
+Counting objects: 3, done.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 348 bytes | 348.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/rparakka/learn.proj.git
+   025b573..0c4f057  play -> play
+rparakka@virtualbox:/gitrepo/learn.proj$
+rparakka@virtualbox:/gitrepo/learn.proj$ rm ubuntu.txt
+rparakka@virtualbox:/gitrepo/learn.proj$
+rparakka@virtualbox:/gitrepo/learn.proj$ git status
+On branch play
+Your branch is up to date with 'origin/play'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+    deleted:    ubuntu.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+rparakka@virtualbox:/gitrepo/learn.proj$
+rparakka@virtualbox:/gitrepo/learn.proj$ git rm ubuntu.txt
+rm 'ubuntu.txt'
+rparakka@virtualbox:/gitrepo/learn.proj$ git commit
+Aborting commit due to empty commit message.
+rparakka@virtualbox:/gitrepo/learn.proj$ git commit -m "file is deleted"
+[play 9df8892] file is deleted
+1 file changed, 1 deletion(-)
+delete mode 100644 ubuntu.txt
+rparakka@virtualbox:/gitrepo/learn.proj$
+
